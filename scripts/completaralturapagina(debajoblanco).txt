@@ -1,0 +1,19 @@
+    var resizear = function() {
+            alturaW = $(window).height();
+            posicionFooter = $('footer').offset().top;
+     
+            alturaN = alturaW - posicionFooter;
+     
+            if (alturaN > 300) {
+                $('footer').css('height',alturaN);
+            }
+    }
+     
+    $(document).ready(function() {
+        resizear();
+    });
+    $(window).resize(function() {
+        resizear();
+    });
+
+ 

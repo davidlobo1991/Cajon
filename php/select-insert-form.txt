@@ -1,0 +1,29 @@
+ public function indexAction(Request $request)
+    {
+        // SELECT ---------------------------------------------------------
+        $select = $this->getDoctrine()->getManager();
+        $repository = $select->getRepository('PruebaBundle:Posts');
+        $posts = $repository->getPosts();
+        // -----------------------------------------------------------------
+
+        // FORM -------------------------------------------------------------
+        $post = new Posts();
+        $form = $this->createForm(PostsType::class, $post);
+        $form->handleRequest($request);
+        //--------------------------------------------------------------------
+
+        // INSERT ------------------------------------------------------------
+        if ($form->isSubmitted() && $form->isValid()) {
+            $insert = $this->getDoctrine()->getManager();
+            $insert->persist($post);
+            $insert->flush();
+        }
+
+        //---------------------------------------------------------------------
+
+
+
+
+        return $this->render('PruebaBundle:Default:blog.html.twig', array('posts' => $posts, 'form' => $form->createView()));
+
+    }

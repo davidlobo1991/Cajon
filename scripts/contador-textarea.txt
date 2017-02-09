@@ -1,0 +1,14 @@
+$(document).ready(function() {
+
+    var total_letras = 125;
+
+    $('#comentario').keyup(function() {
+        var longitud = $(this).val().length;
+        var resto = total_letras - longitud;
+        $('#contador').html(resto + " Zeichen übrig");
+        if(resto <= 0){
+            $('#comentario').attr("maxlength", 125);
+        }
+    });
+
+});

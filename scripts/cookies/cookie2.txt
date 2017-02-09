@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+	<script type="text/javascript">
+
+		function holeCookie(name) {
+			name += "=";
+			var laenge = name.length;
+			var cookie_laenge = document.cookie.length;
+			var i = 0;
+			while (i < cookie_laenge) {
+				var j = i + laenge;
+
+				if(document.cookie.substring(i, j) == name)
+					return holeCookieWert(j);
+				i = document.cookie.indexOf(" ", i) + 1;
+				if (i == 0)
+					break;
+			}
+
+			return null;
+		}
+
+		function holeCookieWert(position) {
+			var ende = document.cookie.indexOf(";", position);
+			if (ende == -1)
+				ende = document.cookie.length;
+			return decodeURIComponent(
+				document.cookie.substring(position, ende));
+		}
+
+		alert(holeCookie("test"));
+
+	</script>
+
+<body>
+
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="es"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="es"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="es"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="es"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>Demos Emenia - El uso de FlexBox</title>
+  <meta name="description" content="Ejemplos de uso de FlexBox.">
+
+  <meta name="viewport" content="width=device-width">
+
+  <link rel="stylesheet" href="css/default.css">
+
+  <style>
+		/**
+		 * CSS Flexible Layout Module - Caja Flexible -
+		 */
+		#viajes {
+			display: flex;
+			display: -webkit-flex;
+			-webkit-flex-flow: row wrap;
+		}
+		.dos{
+			background-color: #b6ebb3;
+			flex: 1;
+			-webkit-flex:1;
+			-webkit-order: 2;
+		}
+		.uno {
+			background-color: #bacee3;
+			flex: 1;
+			-webkit-flex: 1;
+			-webkit-order: 3;
+		}
+		.tres {
+			background-color: #7ebdbb;
+			flex: 1;
+			-webkit-flex:1;
+			-wbkit-order: 1;
+		}
+		.viajes-item {
+			display: flex;
+			display: -webkit-flex;
+			-webkit-flex-direction: column;
+		}
+		.viajes-item > img {
+			-webkit-order: -1;
+			align-self: center;
+			-webkit-align-self: center;
+		}
+		.viajes-item > button {
+			margin-top: auto;
+			width: 30%;
+			align-self: center;
+			-webkit-align-self: center;
+		}
+		@media all and (max-width: 500px) {
+			#viajes { -webkit-flex-direction: column; }
+			.viajes-item{
+				-webkit-order: 0; width: auto;
+			}
+		}
+</style>
+
+</head>
+<body class="home">
+	<div id="cabecera">
+		<div id="contenido-cabecera">
+			<div id="logo">
+				<a href="http://www.emenia.es">Emenia</a>
+			</div>
+			<img src="images/logo_demos.png" alt="Logo Demos" />
+		</div>
+	</div>
+	<h1>Demo de CSS Flexible Layout (Flexbox) o Caja flexible con CSS</h1>
+	<a href="http://www.emenia.es/blog/" title="Volver al artículo sobre FlexBox" class="volver">Volver al art&iacute;culo</a>
+	<section id='viajes'>
+	  <section class='viajes-item uno'>
+	    <h2>Malta, la isla mediterránea por conocer</h2>
+	    <p>Dignissim placerat vel aenean porta, magna ac scelerisque facilisis, rhoncus est! Urna pulvinar dolor lorem purus dapibus quis vut! Hac nunc vel ridiculus enim magnis mid phasellus! Duis et pellentesque lacus urna diam? Sed phasellus, pellentesque mauris ac phasellus lacus augue enim! Penatibus, porta, sit dis et adipiscing eu, nisi ac. </p>
+	    <img src='images/malta.jpg' alt='' />
+	    <button>MÁS INFO</button>
+	  </section>
+	  <section class='viajes-item dos'>
+	    <h2>Polonia, un país por descubrir</h2>
+	    <p>Dignissim placerat vel aenean porta, magna ac scelerisque facilisis.</p>
+	    <img src='images/oporto.jpg' alt='' />
+	    <button>MÁS INFO</button>
+	  </section>
+	  <section class='viajes-item tres'>
+	    <h2>Un paseo por el viejo Oporto</h2>
+	    <p>Cras quis mattis. Elementum, lectus magna, amet dis dis pulvinar scelerisque proin montes quis tempor placerat enim nec dictumst elementum nec augue! Dignissim non enim. </p>
+	    <img src='images/polonia.jpg' alt='' />
+	    <button>MÁS INFO</button>
+	  </section>
+	</section>
+
+</body>
+</html>
+

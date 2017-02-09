@@ -1,0 +1,55 @@
+Para cada video, cada primer ciclo, creo div "row". Dos columnas para incluir los videos.
+
+
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+<f:layout name="Default" />
+
+<f:section name="main">
+	<div class="multimedia-list-videos">
+		<f:if condition="{videos -> f:count()} > 0">
+
+
+			<f:for each="{videos}" as="video" >
+				<f:cycle values="{0: 1, 1: 2}" as="cycle">
+					{cycle -> v:variable.set(name:'lastCycle')}
+					<f:if condition="{cycle} == 1">
+						<div class="row">
+					</f:if>
+					<div class="col-md-6">
+						<div class="multimedia-video-wrap">
+							<f:if condition="{video.title} != ''">
+								<h3>{video.title}</h3>
+							</f:if>
+							<a class="youtube-element" href="http://www.youtube.com/watch?v={video.videoId}">
+								<div class="youtube-element-wrapper">
+									<f:if condition="{video.previewImage}">
+										<f:then>
+											<img src="{video.previewImage.originalFile.publicUrl}" alt="">
+										</f:then>
+										<f:else>
+											<img src="//img.youtube.com/vi/{video.videoId}/maxresdefault.jpg" alt="">
+										</f:else>
+									</f:if>
+								</div>
+							</a>
+							<div class="multimedia-video-description">
+								{video.description -> f:format.html()}
+							</div>
+						</div>
+
+					</div>
+
+					<f:if condition="{cycle} == 2">
+						</div>
+					</f:if>
+
+				</f:cycle>
+
+
+			</f:for>
+			<f:if condition="{lastCycle} == 1">
+				</div>
+			</f:if>
+		</f:if>
+	</div>
+</f:section>

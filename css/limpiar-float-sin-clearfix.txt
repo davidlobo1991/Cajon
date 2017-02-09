@@ -1,0 +1,4 @@
+#contenedor {
+			overflow: hidden;
+			height:   1%;
+		}

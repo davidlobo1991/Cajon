@@ -1,0 +1,116 @@
+<html>
+<head>
+<style>
+#experiment {
+	perspective: 800px;
+	perspective-origin: 50% 200px;
+}
+	
+#cube {
+  position: relative;
+  margin: 0 auto;
+  height: 400px;
+  width: 400px;
+  transition: transform 2s linear;
+  transform-style: preserve-3d;
+}
+
+.face {
+  position: absolute;
+  height: 360px;
+  width: 360px;
+  padding: 20px;
+  background-color: rgba(50, 50, 50, 0.7);
+}
+
+#cube .one  {
+  transform: rotateX(90deg) translateZ(200px);
+}
+
+#cube .two {
+  transform: translateZ(200px);
+}
+
+#cube .three {
+  transform: rotateY(90deg) translateZ(200px);
+}
+
+#cube .four {
+  transform: rotateY(180deg) translateZ(200px);
+}
+
+#cube .five {
+  transform: rotateY(-90deg) translateZ(200px);
+}
+
+#cube .six {
+  transform: rotateX(-90deg) translateZ(200px) rotate(180deg);
+}
+
+
+
+</style>
+
+<script type="text/javascript">
+var props = 'transform WebkitTransform MozTransform OTransform msTransform'.split(' '),
+    prop,
+    el = document.createElement('div');
+
+for(var i = 0, l = props.length; i < l; i++) {
+    if(typeof el.style[props[i]] !== "undefined") {
+        prop = props[i];
+        break;
+    }
+}
+
+var xAngle = 0, yAngle = 0;
+document.addEventListener('keydown', function(e) {
+  switch(e.keyCode) {
+
+    case 37: // left
+      yAngle -= 90;
+      break;
+
+    case 38: // up
+      xAngle += 90;
+      break;
+
+    case 39: // right
+      yAngle += 90;
+      break;
+
+    case 40: // down
+      xAngle -= 90;
+      break;
+  };
+
+    document.getElementById('cube').style[prop] = "rotateX("+xAngle+"deg) rotateY("+yAngle+"deg)";
+}, false);
+</script>
+
+
+<body>
+	<div id="experiment">
+		<div id="cube">
+			<div class="face one">
+				One face
+			</div>
+			<div class="face two">
+				Up, down, left, right
+			</div>
+			<div class="face three">
+				Blablabla
+			</div>	
+			<div class="face four">
+				One face
+			</div>
+			<div class="face five">
+				Up, down, left, right
+			</div>
+			<div class="face six">
+				Blablabla
+			</div>
+		</div>
+	</div>
+</body>
+</html>

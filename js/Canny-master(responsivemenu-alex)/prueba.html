@@ -1,0 +1,38 @@
+<html>
+<head>
+	<title>Canny Demo</title>
+	<script src="jquery-1.11.1.min.js"></script>
+	<script src="jquery-canny.0.4.1.min.js"></script>
+	<link href="canny.css" rel="stylesheet" />
+
+	<script>
+		$(function() {
+			var myCanny = $('#canny').canny({
+				contentWrap: '#container',
+				navToggle: '#canny-toggle'
+			});
+		});
+	</script>
+</head>
+
+<body>
+<div id="container">
+	<button id="canny-toggle">Menu</button>
+			<!-- Content -->
+</div>
+<ul id="canny">
+	<li><a href="">Link 1</a></li>
+	<li>
+		<a href="">Link 2</a>
+		<ul>
+			<li><a href="">Link 2 1</a></li>
+			<li><a href="">Link 2 2</a></li>
+			<li><a href="">Link 2 3</a></li>
+		</ul>
+	</li>
+	<li><a href="">Link 3</a></li>
+	<li><a href="">Link 4</a></li>
+</ul>
+</body>
+</html>
+

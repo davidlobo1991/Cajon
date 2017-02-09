@@ -1,0 +1,203 @@
+JS
+(function($) {
+
+	/**
+	 * Copyright 2012, Digital Fusion
+	 * Licensed under the MIT license.
+	 * http://teamdf.com/jquery-plugins/license/
+	 *
+	 * @author Sam Sehnert
+	 * @desc A small plugin that checks whether elements are within
+	 *     the user visible viewport of a web browser.
+	 *     only accounts for vertical position, not horizontal.
+	 */
+
+	$.fn.visible = function(partial) {
+		var $t = $(this),
+		$w = $(window),
+		viewTop = $w.scrollTop(),
+		viewBottom = viewTop + $w.height() - ($w.height() / 4.5),
+		_top = $t.offset().top,
+		_bottom = _top + $t.height(),
+		compareTop = partial === true ? _bottom : _top,
+		compareBottom = partial === true ? _top : _bottom;
+
+		return ((compareBottom <= viewBottom) && (compareTop >= viewTop));
+	};
+
+})(jQuery);
+
+var win = $(window);
+
+var allMods = $(".event, .box-full-color, .box-infotext, .scroll-animation, .box-width-image-text, .application-teaser, .events-box, .comment");
+
+allMods.css('opacity', 0);
+allMods.each(function(i, el) {
+	var el = $(el);
+	if (el.visible(true)) {
+		el.addClass("already-visible");
+	}
+});
+
+win.scroll(function(event) {
+
+	allMods.each(function(i, el) {
+		var el = $(el);
+		if (el.visible(true)) {
+			el.addClass("come-in");
+		}
+	});
+
+});
+
+
+
+
+SCSS 
+////////////////
+
+
+
+
+
+.already-visible {
+	opacity: 1 !important;
+	@include transform(none !important);
+}
+
+.box-infotext,
+.scroll-animation,
+.event,
+.box-full-color,
+.box-width-image-text,
+.events-box,
+.comment {
+	&.come-in {
+		@include transform(scale(0.5));
+		-webkit-animation: resize 0.8s 0.1s cubic-bezier(.17,.85,.33,.98) forwards;
+		animation: resize 0.8s 0.1s cubic-bezier(.17,.85,.33,.98) forwards;
+	}
+
+	&.come-in {
+		opacity: 0;
+	}
+}
+
+.application-teaser {
+	&.come-in {
+		@include transform(translateY(-50px));
+		-webkit-animation: come-in-y 0.8s 0.3s cubic-bezier(.17,.85,.33,.98) forwards;
+		animation: come-in-y 0.8s 0.3s cubic-bezier(.17,.85,.33,.98) forwards;
+	}
+
+	&.come-in {
+		opacity: 0;
+	}
+}
+
+.timeline-item .scroll-animation.item-box,
+.scroll-animation.hero-image-detail {
+	&.come-in {
+		@include transform(translateX(50px));
+		-webkit-animation: come-in-x 0.8s 0.3s cubic-bezier(.17,.85,.33,.98) forwards;
+		animation: come-in-x 0.8s 0.3s cubic-bezier(.17,.85,.33,.98) forwards;
+	}
+
+	&.come-in {
+		opacity: 0;
+	}
+}
+
+@include media('>=medium') {
+	.timeline-item:nth-child(odd) .scroll-animation.item-box {
+		&.come-in {
+			@include transform(translateX(-50px));
+			-webkit-animation: come-in-x 0.8s 0.3s cubic-bezier(.17,.85,.33,.98) forwards;
+			animation: come-in-x 0.8s 0.3s cubic-bezier(.17,.85,.33,.98) forwards;
+		}
+
+		&.come-in {
+			opacity: 0;
+		}
+	}
+}
+
+@-webkit-keyframes resize {
+	to {
+		opacity: 1;
+		@include transform(scale(1.0));
+	}
+}
+
+
+@keyframes resize {
+	to {
+		opacity: 1;
+		@include transform(scale(1.0));
+	}
+}
+
+@-webkit-keyframes come-in-y {
+	to {
+		opacity: 1;
+		@include transform(translateY(0));
+	}
+}
+
+@keyframes come-in-y {
+	to {
+		opacity: 1;
+		@include transform(translateY(0));
+	}
+}
+
+
+@-webkit-keyframes come-in-x {
+	to {
+		opacity: 1;
+		@include transform(translateX(0));
+	}
+}
+
+@keyframes come-in-x {
+	to {
+		opacity: 1;
+		@include transform(translateX(0));
+	}
+}
+
+
+.event.finished-event {
+	&.come-in,
+	&.already-visible {
+		@include transform(scale(0.5));
+		-webkit-animation: resize-2 0.8s 0.1s cubic-bezier(.17,.85,.33,.98) forwards;
+		animation: resize-2 0.8s 0.1s cubic-bezier(.17,.85,.33,.98) forwards;
+	}
+
+	&.come-in {
+		opacity: 0;
+	}
+}
+
+
+@-webkit-keyframes resize-2 {
+	to {
+		opacity: 0.6;
+		@include transform(scale(1.0));
+	}
+}
+
+
+@keyframes resize-2 {
+	to {
+		opacity: 0.6;
+		@include transform(scale(1.0));
+	}
+}
+
+
+
+
+SCSS /
+

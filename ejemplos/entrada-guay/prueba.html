@@ -1,0 +1,71 @@
+<html>
+<head>
+<style>
+.fleet-navigation a { 
+	opacity: 0;
+    display: block;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    width: 173px;
+    height: 138px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    color: #000;
+    font-family: "db_sans_cond_bold", Arial, sans-serif;
+    font-size: 0.875rem;
+    text-decoration: none;
+    animation-duration: 1000ms;  
+    animation-fill-mode: forwards;  //Indica que hara la animacion y se quedara en la nueva posicion
+    animation-delay: 1500ms; //Cuanto tiempo tarda hasta aparecer
+    animation-timing-function: ease-out;
+    animation-direction: normal;
+	animation-name: fleet-detail-navigation-1;
+
+	}
+	
+	.fleet-navigation a.prev-topic {
+		background-color: blue;
+
+	}
+
+	
+	.fleet-navigation a.next-topic {
+		background-color: red;
+		right: 100px;
+	}
+	
+	
+	@keyframes fleet-detail-navigation-1 {
+	from {
+		opacity: 0;
+		transform: translateY(1000px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+
+	@keyframes -webkit-fleet-detail-navigation-1 {
+	from {
+		opacity: 0;
+		transform: translateY(1000px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+	
+</style>
+<body>
+<div class="fleet-navigation">
+	<a class="prev-topic"><span>Prueba 1</span></a>
+	<a class="next-topic" /><span>Prueba 2</span></a>
+
+</div>

@@ -1,0 +1,21 @@
+jQuery(function($) {
+	// user agent
+	function detectMobile() {
+		if( navigator.userAgent.match(/Android/i)
+				|| navigator.userAgent.match(/webOS/i)
+				|| navigator.userAgent.match(/iPhone/i)
+				|| navigator.userAgent.match(/iPad/i)
+				|| navigator.userAgent.match(/iPod/i)
+				|| navigator.userAgent.match(/BlackBerry/i)
+				|| navigator.userAgent.match(/Windows Phone/i)
+				|| navigator.userAgent.match(/Tablet/i) && !navigator.userAgent.match(/NT/i)
+				|| navigator.userAgent.match(/Mobile/i)
+				|| navigator.userAgent.match(/FROYO/i)
+				|| navigator.userAgent.match(/Xoom/i)
+				|| navigator.userAgent.match(/BB/i)
+		){
+			jQuery('body').addClass('mobile');
+		}
+	}
+
+	detectMobile();

@@ -1,0 +1,42 @@
+/**
+ * Paginator
+ * v. 1.0
+ */
+
+function pagination (numPerPage) {
+	var show_per_page = numPerPage;
+	var pagination_list = $('#pagination-list');
+	var pagination = $('#pagination');
+	var number_of_items = pagination_list.children().length;
+	var number_of_pages = Math.ceil(number_of_items / show_per_page);
+	var navigation_html = '<ul>';
+	var current_link = 0;
+
+	while (number_of_pages > current_link) {
+		navigation_html += '<li class="page-link" id="id' + current_link + '">';
+		navigation_html += '<a href="javascript:go_to_page(' + current_link + ', ' + numPerPage + ')">' + (current_link + 1) + '</a>';
+		current_link++;
+		navigation_html += '</li>';
+	}
+	pagination.html(navigation_html);
+	pagination.find('ul li:first-child').addClass('active');
+	pagination_list.children().css('display', 'none');
+	pagination_list.children().slice(0, show_per_page).css('display', 'block');
+}
+
+function go_to_page(page_num, showPerPage) {
+	var show_per_page = showPerPage;
+
+	//get the element number where to start the slice from
+	var start_from = page_num * show_per_page;
+
+	//get the element number where to end the slice
+	var end_on = start_from + show_per_page;
+
+	activate_id = page_num;
+	var get_box = document.getElementById("id" + page_num);
+	$('#pagination-list').children().css('display', 'none').slice(start_from, end_on).css('display', 'block');
+	$("#pagination").find('li.active').removeClass("active");
+	$(get_box).addClass("active");
+	current_page = page_num;
+}

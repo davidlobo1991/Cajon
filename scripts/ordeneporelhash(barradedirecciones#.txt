@@ -1,0 +1,41 @@
+ +     //recipes and tiles by url
+ + 
+ +     var $masonryNodeList = document.body.querySelectorAll(".filter-nav > nav > ul > li > a");
+ + 
+       if($masonryRecipes.length > 0) {
+ +         var $hash = "filter-" + window.location.hash.substring(1);
+ +         if($hash=='filter-calorie+' || $hash=='filter-calorie-') {
+ +             $hash = $hash.replace("filter-", "");
+ +         }
+ + 
+ +         if($hash != undefined && $hash != '') {
+ +             for(i=1; i < $masonryNodeList.length; i++) {
+ + 
+ +                 if($hash!='calorie+' && $hash!='calorie-') {
+ +                     if ($masonryNodeList[i].getAttribute('data-filter').substring(1) == $hash) {
+ +                         $masonryNodeList[i].className += "active";
+ +                     }
+ +                 }
+ +                 else {
+ +                     if ($masonryNodeList[i].getAttribute('data-filter') == $hash) {
+ +                         $masonryNodeList[i].className += "active";
+ +                     }
+ +                 }
+ +             }
+ + 
+ +             $('html,body').animate({
+ +                 scrollTop: $(".tx-workout").offset().top - 100
+ +             }, 1000);
+ + 
+ +             if(hash=='calorie+') {
+ +                 $masonryRecipes.isotope({sortBy: 'calorie', sortAscending: false});
+ +             } else if(hash=='calorie-'){
+ +                 $masonryRecipes.isotope({sortBy: 'calorie', sortAscending: true});
+ +             } else {
+ +                 $masonryRecipes.isotope({filter: '.'+$hash});
+ +             }
+ +         }
+ + 
+           // bind filter button click
+           $('.filter-nav li a').on('click', function(e) {
+               e.preventDefault();

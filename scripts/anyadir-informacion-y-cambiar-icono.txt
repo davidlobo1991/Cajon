@@ -1,0 +1,6 @@
+$(document).ready(function() {
+$('.tour-table-group').on('click', '.icon-table', function() {
+$(this).closest('.tour-table-group').toggleClass('open');                  //primer padre clase tour-table-group se le anyade la clase open
+$(this).closest('.tour-table-group').children('.tour-table-hide').slideToggle();    //primer padre clase tour-table-group, hijo llamado tour-table-hide slide
+});
+});

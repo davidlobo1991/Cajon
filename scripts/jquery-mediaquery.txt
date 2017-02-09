@@ -1,0 +1,26 @@
+Check a CSS rule that the media query changes. This is guaranteed to always work.
+
+http://www.fourfront.us/blog/jquery-window-width-and-media-queries
+
+HTML:
+
+<body>
+    ...
+    <div id="mobile-indicator"></div>
+</body>
+Javascript:
+
+function isMobileWidth() {
+    return $('#mobile-indicator').is(':visible');
+}
+CSS:
+
+#mobile-indicator {
+    display: none;
+}
+
+@media (max-width: 767px) {
+    #mobile-indicator {
+        display: block;
+    }
+}

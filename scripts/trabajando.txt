@@ -1,0 +1,22 @@
+
+// ==============================================================
+// DISPLAY NONE IN LIST OF DIVISION SELECT IF ALL ELEMENTS ARE HIDDEN
+// ==============================================================
+$(document).ready(function() {
+    $('.division-select').on('change', function () {
+        var i = 0;
+        var div = $('.tx-efw-jobs ul .division');
+        div.each(function () {
+            if($(this).is(':hidden')) {
+                i++;
+            }
+            else {
+                i = 1000;
+                return false;
+            }
+        });
+        if(i == (div.length - 1)) {
+            div.parent().css('display', 'none');
+        }
+    });
+});

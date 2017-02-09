@@ -1,0 +1,16 @@
+Coje opacidad, cursor lupa, se agranda 1.05 a una velocidad de 0.8s
+
+&:hover {
+	   opacity: 0.8;
+	   cursor: zoom-in;
+	   -moz-transform: scale(1.05);
+	   -o-transform: scale(1.05);
+	   -webkit-transform: scale(1.05);
+	   -ms-transform: scale(1.05);
+	   transform: scale(1.05);
+	   -moz-transition: ease 0.8s;
+	   -o-transition: ease 0.8s;
+	   -webkit-transition: ease 0.8s;
+	   -ms-transition: ease 0.8s;
+	   transition: ease 0.8s;
+	 }

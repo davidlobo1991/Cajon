@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>a</title>
+</head>
+<body>
+<script>
+	function descargaArchivo() {
+		if(window.XMLHttpRequest) {
+			peticion_http = new XMLHttpRequest();
+		}
+		else if(window.ActiveXObject) {
+			peticion_http = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+	}
+	peticion_http.onreadystatechange = muestracontenido;
+
+	peticion_http.open('GET', 'http://localhost/holamundo.txt', true);
+	peticion_http.send(null);
+
+	function muestracontenido() {
+		if (peticion_http.readyState == 4) {
+			if (peticion_http.status == 200) {
+				alert(peticion_http.responseText);
+			}
+		}
+	}
+
+	window.onload = descargaArchivo;
+
+
+
+
+</script>
+
+</body>
+</html>

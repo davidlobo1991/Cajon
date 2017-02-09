@@ -1,0 +1,13 @@
+if (substr($filter, -3) == "asc") {
+                uasort($feed, function ($a, $b) use ($sortBy) {
+                    return $a->$sortBy - $b->$sortBy;
+                });
+                return $feed;
+            } elseif (substr($filter, -3) == "des") {
+                uasort($feed, function ($a, $b) use ($sortBy) {
+                    return $b->$sortBy - $a->$sortBy;
+                });
+                return $feed;
+            }
+return $feed;
+}

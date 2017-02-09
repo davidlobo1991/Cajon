@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<style>
+		body {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			margin: 0;
+			height: 1000px;
+			background:#00022a url(flashlight.jpg) no-repeat;
+			background-position: 0 0;
+		}
+
+		.prueba {
+			width: 300px;
+			border: 2px solid #ccc;
+			margin-top: 50px;
+			margin-left: 100px;
+		}
+	</style>
+
+	<meta charset="UTF-8">
+	<title>linterna</title>
+</head>
+<body onMouseMove="coordenadas(event);">
+
+<div class="prueba">
+	Thanks for this tutorial dave. I separated the code into external files. I couldn’t get the flashlight to work. I think the problem is with the calling of
+	the Mootools. How do I call Mootools in an HTML document?
+	I used to call the style sheet and it works fine.
+	I think this will be a useful feature for a new product launch page where teaser images are shown for one to see the status of the product. Just fun.
+	Will appreciate a reply from anybody who can help me out.
+</div>
+
+<form action="#">
+	<label for="x">X: </label><input type="text" id="x">
+	<label for="y">Y: </label><input type="text" id="y">
+</form>
+
+<script>
+	function coordenadas(event) {
+		x = event.clientX;
+		y = event.clientY;
+
+		document.getElementById("x").value = x;
+		document.getElementById("y").value = y;
+
+		document.body.style.backgroundPositionX = x - 250 + "px";
+		document.body.style.backgroundPositionY = y - 250 + "px";
+
+	}
+
+</script>
+</body>
+</html>

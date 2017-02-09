@@ -1,0 +1,5 @@
+Name: SCSS
+File Type: SCSS
+Programm: C:\Ruby22\bin\compass.bat
+Arguments: compile --config "$ProjectFileDir$/shell/config/compass.config.rb" "$ProjectFileDir$"
+Working directory: $ProjectFileDir$/shell/

@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
+
+<html>
+
+
+
+<head>
+
+ <style type="text/css">
+ 
+  div { margin-bottom: 20px; }
+ 
+  div.test1 { max-width: 1280px; height: 200px; background: #d15e00; position: relative; overflow: hidden; }
+  div.test1:after {
+width: 0px;
+content: "";
+position: absolute;
+bottom: -631px;
+left: 625px;
+border-top: 1286px solid #FFF;
+border-left: 25px solid #D15E00;
+transform: rotate(90deg); 
+}
+
+ 
+</style>
+</head>
+
+
+
+<body>
+ <div class="test1"></div>
+ 
+</body>
+
+
+
+</html>

@@ -1,0 +1,13 @@
+Se necesita Magnificpopup
+
+jQuery( document ).ready(function( $ ) {
+	$('.images-size').magnificPopup({
+		delegate: 'img',
+		type: 'image',
+		callbacks: {
+			elementParse: function(item) {
+				item.src = item.el.attr('src');
+			}
+		}
+	});
+});

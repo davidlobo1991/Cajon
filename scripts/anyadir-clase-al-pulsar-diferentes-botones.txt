@@ -1,0 +1,16 @@
+<button class="btn-themes" data-theme="default">Standard</button>
+
+(data-(valor))   
+
+
+
+
+
+
+$(function() {
+	$('.btn-themes').on('click', function(e) {       //al hacer click a la clase btn-themes (algun boton)
+		e.preventDefault();          //sirve para eliminar la accion por defecto (por ejemplo, en un boton href)
+		var theme = $(this).attr('data-theme');      //recupera el atributo data-thema del elemento clickado
+		$('body').attr('class', '').addClass('theme_' + theme);   //anyade la clase al body
+	});
+});

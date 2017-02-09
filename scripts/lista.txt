@@ -1,0 +1,4 @@
+- contador de textarea
+- hacia arriba
+
+-lazysizes --> Mejorar calidad imagen (script)
